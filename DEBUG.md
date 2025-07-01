@@ -20,3 +20,9 @@ x86
 ```
 
 修改 test\fixtures\AppxManifest_x64.xml
+
+2. 生成测试用自签名证书
+
+```
+Export-PfxCertificate -Cert $cert -FilePath "C:\temp\ElectronTestCert.pfx" -Password (ConvertTo-SecureString -String "YourPassword" -Force -AsPlainText)
+```

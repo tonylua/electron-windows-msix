@@ -3,6 +3,7 @@ import { ProgramOptions } from "./types";
 import iconv from "iconv-lite";
 
 const run = async (executable: string, args: Array<string>) => {
+  // console.log("run args", args);
   return new Promise<string>((resolve, reject) => {
     const proc = require("child_process").spawn(executable, args, {});
     log.debug(`Calling ${executable} with args`, args);
@@ -112,6 +113,7 @@ export const make = async (program: ProgramOptions) => {
 
 export const sign = async (program: ProgramOptions) => {
   const { signTool, signParams, msix } = program;
+  if (signParams[0] === "sign") signParams.shift();
   const args = ["sign", ...signParams, msix];
   await run(signTool, args);
 };
