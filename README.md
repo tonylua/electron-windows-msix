@@ -1,14 +1,16 @@
 # MSIX packager for Electron Apps
+
 ![electron_msix](https://github.com/bitdisaster/electron-windows-msix/assets/5191943/4321b39e-f4d8-4d2f-b6cb-78f7c27950ff)
 
+> fork from https://github.com/bitdisaster/electron-windows-msix
 
 Electron-Windows-MSIX is a module that lets you create an MSIX installer from a packaged Electron App.
 
-
 ### Prerequisites
- * Windows 10 or 11
- * The Windows 10 SDK you wan to target https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk
- * An understanding of MSIX packaging and AppxManifest, read more at https://learn.microsoft.com/en-us/windows/msix/package/manual-packaging-root
+
+- Windows 10 or 11
+- The Windows 10 SDK you wan to target https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk
+- An understanding of MSIX packaging and AppxManifest, read more at https://learn.microsoft.com/en-us/windows/msix/package/manual-packaging-root
 
 ### Installation
 
@@ -17,6 +19,7 @@ npm install electron-windows-msix
 ```
 
 ## Usage
+
 ```
   PACKAGING OPTIONS
 
@@ -38,33 +41,38 @@ npm install electron-windows-msix
 ```
 
 #### Minimal example that derives all possible data from the Manifest
+
 ```js
 packageMSIX({
-    appDir: 'C:\\temp\\myapp',
-    appManifest: 'C:\\temp\\AppxManifest.xml',
-    packageAssets: 'C:\\temp\\assets',
-    outputDir: 'C:\\temp\\out',
-    cert: 'C:\\temp\\app_cert.pfx',
-    cert_pass: 'hellomsix',
+  appDir: "C:\\temp\\myapp",
+  appManifest: "C:\\temp\\AppxManifest.xml",
+  packageAssets: "C:\\temp\\assets",
+  outputDir: "C:\\temp\\out",
+  cert: "C:\\temp\\app_cert.pfx",
+  cert_pass: "hellomsix",
 });
 ```
 
 #### Explicit example that controls all options
+
 ```js
 packageMSIX({
-    appDir: 'C:\\temp\\myapp',
-    appManifest: 'C:\\temp\\AppxManifest.xml',
-    packageAssets: 'C:\\temp\\assets',
-    outputDir: 'C:\\temp\\out',
-    windowsKitPath: 'C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.17763.0\\x64',
-    createPri: false,
-    cert: 'C:\\temp\\app_cert.pfx',
-    cert_pass: 'hellomsix',
-    packageName: 'MyApp.msix',
-    logLevel: 'warn',
+  appDir: "C:\\temp\\myapp",
+  appManifest: "C:\\temp\\AppxManifest.xml",
+  packageAssets: "C:\\temp\\assets",
+  outputDir: "C:\\temp\\out",
+  windowsKitPath:
+    "C:\\Program Files (x86)\\Windows Kits\\10\\bin\\10.0.17763.0\\x64",
+  createPri: false,
+  cert: "C:\\temp\\app_cert.pfx",
+  cert_pass: "hellomsix",
+  packageName: "MyApp.msix",
+  logLevel: "warn",
 });
 ```
 
-----
+---
+
 #### [MIT License (MIT)](LICENSE) | Copyright (c) Jan Hannemann.
-----
+
+---
