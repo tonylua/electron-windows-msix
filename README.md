@@ -6,6 +6,48 @@
 
 Electron-Windows-MSIX is a module that lets you create an MSIX installer from a packaged Electron App.
 
+## 1. 测试
+
+- 安装依赖 `yarn install`
+- 运行用例 `yarn test` (test/testing.js)
+
+### 常见问题
+
+#### 1.1. Powershell 管理员权限
+
+```
+Get-ChildItem "C:\Program Files (x86)\Windows Kits\10\bin\" | Select-Object Name
+```
+
+```
+Name
+----
+10.0.14393.0
+10.0.15063.0
+10.0.16299.0
+10.0.17134.0
+10.0.22000.0
+10.0.22621.0
+arm
+arm64
+x64
+x86
+```
+
+修改 test\fixtures\AppxManifest_x64.xml
+
+#### 1.2. 生成测试用自签名证书
+
+```
+Export-PfxCertificate -Cert $cert -FilePath "C:\temp\ElectronTestCert.pfx" -Password (ConvertTo-SecureString -String "YourPassword" -Force -AsPlainText)
+```
+
+#### 1.3. 运行打包后的MSIX提示“无法验证此应用包的发布者证书”
+
+右键软件包->数字签名->点击证书名->详细信息(D)->查看证书(V)->安装证书(I)->本地计算机(L)->下一步(N)->将所有证书都放入下列存储(P)->浏览(R)->受信任的根证书颁发机构->确定->下一步->完成
+
+## 2. 使用
+
 ### Prerequisites
 
 - Windows 10 or 11
@@ -70,9 +112,3 @@ packageMSIX({
   logLevel: "warn",
 });
 ```
-
----
-
-#### [MIT License (MIT)](LICENSE) | Copyright (c) Jan Hannemann.
-
----
